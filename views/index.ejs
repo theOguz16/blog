@@ -1,0 +1,35 @@
+<div class="author">
+  <h1 class="author-heading">BLOG APP'e Hoşgeldiniz</h1>
+  <p class="author-body">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae, architecto?
+  </p>
+</div>
+
+<img
+  src="img/ucan-balon.jpg"
+  alt=""
+  class="ucan-balon-img"
+  width="750"
+  height="500"
+/>
+
+<section class="articles">
+  <h2 class="articles-heading">Son Postlar</h2>
+  <ul class="article-ul">
+    <% data.forEach(post => { %>
+    <li>
+      <a href="/post/<%= post._id%>">
+        <span><%= post.title %></span>
+        <span class="article-list-date"
+          ><%= post.createdAt.toLocaleString("tr-TR", {year: "numeric", month:
+          "long",day: "numeric"}) %></span
+        >
+      </a>
+    </li>
+    <% }); %>
+  </ul>
+
+  <% if(nextPage!==null){ %>
+  <a href="/?page=<%= nextPage %>" class="pagination">&lt; Daha Eski Postlar</a>
+  <% } %>
+</section>

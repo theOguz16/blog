@@ -1,0 +1,28 @@
+<h3>Merhaba <%= user.username %></h3>
+
+<form action="/profile" method="POST">
+  <label for="phone"><b>Telefon Numarası: </b></label>
+  <input type="text" value="<%= user.phone %>" name="phone" />
+
+  <label for="email"><b>Email: </b></label>
+  <input type="email" value="<%= user.email %>" name="email" />
+
+  <input type="submit" value="Güncelle" class="btn" />
+
+  <a href="/others" class="registerBtn">Yetkililer</a>
+</form>
+<hr />
+<div class="admin-title">
+  <h3>Son 5 işleminiz</h3>
+</div>
+<ul class="admin-posts">
+  <% loglar.forEach(log =>{ %>
+  <li>
+    <p>POST ID: <%= log.id %></p>
+    <p>METHOD: <%= log.method %></p>
+    <div class="admin-post-controls">
+      <a href="/log/<%= log._id %>" class="btn">Detay</a>
+    </div>
+  </li>
+  <% }) %>
+</ul>

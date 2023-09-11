@@ -1,0 +1,48 @@
+<a href="/profile" style="display: inline"><< Geri</a>
+
+<div class="admin-title">
+  <h3>Log Detay</h3>
+</div>
+
+<ul style="list-style-type: none">
+  <li>
+    <b>METHOD: </b>
+    <span><%= log.method %></span>
+  </li>
+  <li>
+    <b>Kullanıcı Adı: </b>
+    <span><%= log.username %></span>
+  </li>
+  <li>
+    <b>Log Tarihi: </b>
+    <span
+      ><%= log.createdAt.toLocaleString("tr-TR", {year: "numeric", month:
+      "long", day: "numeric"}) %></span
+    >
+  </li>
+  <li>
+    <b style="font-weight: 900; margin: 20px">Eski Veri:</b>
+  </li>
+
+  <li>
+    <% if(log.oldValue!==null) { %>
+    <ul>
+      <li>
+        <b>Başlık: </b>
+        <span><%= log.oldValue.title %></span>
+      </li>
+      <li>
+        <b>İçerik:</b>
+        <span><%= log.oldValue.body %></span>
+      </li>
+      <li>
+        <b>Log Tarihi: </b>
+        <span
+          ><%= log.createdAt.toLocaleString("tr-TR", {year: "numeric", month:
+          "long", day: "numeric"}) %></span
+        >
+      </li>
+    </ul>
+    <% } else { %> eski veri bulunmuyor <% } %>
+  </li>
+</ul>
